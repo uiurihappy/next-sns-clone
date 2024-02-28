@@ -1,6 +1,6 @@
 "use client";
 
-import style from "@/app/(beforeLogin)/@modal/login.module.css";
+import style from "@/app/(beforeLogin)/@modal/i/flow/login.module.css";
 /*
  useState는 클라이언트 컴포넌트에서만 동작되는데 서버 컴포넌트에서 사용되고 있다.
  현재 경로는 전부 서버 컴포넌트에 속해 있다.
