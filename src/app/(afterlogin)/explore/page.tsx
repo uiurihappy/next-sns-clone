@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/app/page.module.css";
+import styles from '@/app/(beforelogin)/_component/main.module.css'; // css module 사용
 
 export default function Home() {
   return (
