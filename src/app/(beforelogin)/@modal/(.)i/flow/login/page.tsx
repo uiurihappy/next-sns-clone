@@ -1,4 +1,5 @@
-"use client";
+'use client';
+import LoginModal from '@/app/(beforelogin)/_component/LoginModal';
 /*
  useState는 클라이언트 컴포넌트에서만 동작되는데 서버 컴포넌트에서 사용되고 있다.
  현재 경로는 전부 서버 컴포넌트에 속해 있다.
@@ -8,11 +9,8 @@
 */
 // 클라이언트에서 라우팅할 때만 인터셉트 라우팅이 적용된다.
 
-import { useRouter } from "next/navigation";
-
 // 서버 컴포넌트는 클라이언트 컴포넌트를 import 해도 되지만, 반대로 클라이언트 컴포넌트가 서버 컴포넌트를 import 하면 안된다.
-export default function Login() {
-  const router = useRouter();
+export default function Page() {
   /** push, replace 차이
    * push는
    * localhost:3000/login -> localhost:3000/i/flow/login
@@ -23,6 +21,9 @@ export default function Login() {
    *
    * 이동 후 히스토리를 지워버린다
    */
-  router.replace("/i/flow/login");
-  return null;
+  return (
+    <>
+      <LoginModal />
+    </>
+  );
 }

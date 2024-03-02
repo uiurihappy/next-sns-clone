@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import styles from './main.module.css'; // css module 사용
+import styles from '@/app/(beforelogin)/_component/main.module.css'; // css module 사용
 import ybchaLogo from '../../../../public/ybchaLogo.png';
 import Link from 'next/link';
 
@@ -13,7 +13,7 @@ export default function Main() {
       <div className={styles.right}>
         <h1>지금 일어나고 있는 일</h1>
         <h2>지금 가입하세요.</h2>
-        <Link href="/i/flow/signUp" className={styles.signUp}>
+        <Link href="/i/flow/signUp" className={styles.signup}>
           계정 만들기
         </Link>
         <h3>이미 트위터에 가입하셨나요?</h3>

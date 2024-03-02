@@ -1,13 +1,14 @@
-"use client";
-import style from "./signup.module.css";
-import { useRouter } from "next/navigation";
-import { ChangeEventHandler, FormEventHandler, useState } from "react";
+'use client';
+
+import style from './signup.module.css';
+import { useRouter } from 'next/navigation';
+import { ChangeEventHandler, FormEventHandler, useState } from 'react';
 
 export default function SignupModal() {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [nickname, setNickname] = useState("");
-  const [image, setImage] = useState("");
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [image, setImage] = useState('');
   const [imageFile, setImageFile] = useState<File>();
 
   const router = useRouter();
@@ -32,20 +33,20 @@ export default function SignupModal() {
 
   const onSubmit: FormEventHandler = (e) => {
     e.preventDefault();
-    fetch("http://localhost:9090/api/users", {
-      method: "post",
+    fetch('http://localhost:9090/api/users', {
+      method: 'post',
       body: JSON.stringify({
         id,
         nickname,
         image,
         password,
       }),
-      credentials: "include",
+      credentials: 'include',
     })
       .then((response: Response) => {
         console.log(response.status);
         if (response.status === 200) {
-          router.replace("/home");
+          router.replace('/home');
         }
       })
       .catch((err) => {
@@ -78,14 +79,7 @@ export default function SignupModal() {
                 <label className={style.inputLabel} htmlFor="id">
                   아이디
                 </label>
-                <input
-                  id="id"
-                  className={style.input}
-                  type="text"
-                  placeholder=""
-                  value={id}
-                  onChange={onChangeId}
-                />
+                <input id="id" className={style.input} type="text" placeholder="" value={id} onChange={onChangeId} />
               </div>
               <div className={style.inputDiv}>
                 <label className={style.inputLabel} htmlFor="name">
@@ -117,13 +111,7 @@ export default function SignupModal() {
                 <label className={style.inputLabel} htmlFor="image">
                   프로필
                 </label>
-                <input
-                  id="image"
-                  className={style.input}
-                  type="file"
-                  accept="image/*"
-                  onChange={onChangeImageFile}
-                />
+                <input id="image" className={style.input} type="file" accept="image/*" onChange={onChangeImageFile} />
               </div>
             </div>
             <div className={style.modalFooter}>

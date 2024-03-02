@@ -5,7 +5,7 @@
 - CSS module
 - vanilla extract -> Windows와 문제
 */
-import Main from './_component/Main';
+import Main from '@/app/(beforelogin)/_component/Main';
 
 export default function Home() {
   // 실제로는 메인 페이지에 존재하지만, 패러렐 라우트가 인터셉팅을 하여 처리
