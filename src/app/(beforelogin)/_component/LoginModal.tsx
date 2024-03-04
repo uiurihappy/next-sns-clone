@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import style from "@/app/(beforelogin)/_component/login.module.css";
+import style from '@/app/(beforelogin)/_component/login.module.css';
 /*
  useState는 클라이언트 컴포넌트에서만 동작되는데 서버 컴포넌트에서 사용되고 있다.
  현재 경로는 전부 서버 컴포넌트에 속해 있다.
@@ -9,15 +9,21 @@ import style from "@/app/(beforelogin)/_component/login.module.css";
  클라이언트 컴포넌트로 전환된다.
 */
 // 클라이언트에서 라우팅할 때만 인터셉트 라우팅이 적용된다.
-import { useState } from "react";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function LoginModal() {
   // State
   const [id, setId] = useState();
   const [password, setPassword] = useState();
   const [message, setMessage] = useState();
+  const router = useRouter();
   const onSubmit = () => {};
-  const onClickClose = () => {};
+
+  const onClickClose = () => {
+    router.back();
+    // TODO: 뒤로가기가 /home이 아니면 /home으로 보내기
+  };
 
   const onChangeId = () => {};
 
@@ -47,14 +53,7 @@ export default function LoginModal() {
               <label className={style.inputLabel} htmlFor="id">
                 아이디
               </label>
-              <input
-                id="id"
-                className={style.input}
-                value={id}
-                onChange={onChangeId}
-                type="text"
-                placeholder=""
-              />
+              <input id="id" className={style.input} value={id} onChange={onChangeId} type="text" placeholder="" />
             </div>
             <div className={style.inputDiv}>
               <label className={style.inputLabel} htmlFor="password">
