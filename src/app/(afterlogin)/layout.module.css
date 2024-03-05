@@ -1,0 +1,157 @@
+.container {
+  display: flex;
+  align-items: stretch;
+  background-color: #fff;
+}
+
+.leftSectionWrapper {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  /* 
+  ref: https://moo-you.tistory.com/380
+  flex-grow: 빈 여백 공간에 대한 처리
+  영역에 대한 가운데 정렬 및 비율을 정의할 수 있다. 
+  */
+  flex-grow: 1;
+}
+
+.leftSection {
+  width: 275px;
+  height: 100dvh;
+}
+
+.leftSectionFixed {
+  /* 말 그대로 고정 스타일 할당이다.*/
+  background-color: orange;
+  position: fixed;
+  /* 
+  width를 100%로 하게 되면 잘 안될 가능성이 있다.
+  그래서 position: fixed를 하게 되면 부모의 width를 제대로 못가져오는 경우가 있다.
+  따라서 inherit를 사용해 부모 width를 상속받아 가져온다.
+  leftSection이 부모이기에 275px를 그대로 가져온다.
+  */
+  width: inherit;
+
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftSectionFixed nav {
+  flex: 1;
+}
+.leftSectionFixed nav li {
+  list-style-type: none;
+}
+
+.logo {
+  display: inline-block;
+  height: 56px;
+  margin-top: 2px;
+}
+
+.logoPill {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoPill:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+
+.postButton {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
+  background-color: rgb(29, 155, 240);
+  width: 234px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font-size: 17px;
+  border-radius: 26px;
+}
+
+.postButton:hover {
+  background-color: rgb(26, 140, 216);
+}
+
+.rightSectionWrapper {
+  display: flex;
+  align-items: flex-start;
+  height: 100dvh;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rightSectionInner {
+  background-color: aqua;
+  height: 100%;
+  width: 990px;
+  display: flex;
+  /* space-between을 통해 간격을 최대한 멀리 떨어뜨리게 한다 */
+  justify-content: space-between;
+}
+
+.main {
+  background-color: white;
+  color: black;
+  width: 600px;
+  height: 200dvh;
+}
+
+.rightSection {
+  background-color: blue;
+  width: 350px;
+  height: 100%;
+}
+
+.search {
+  position: fixed;
+  height: 42px;
+  width: inherit;
+  border-radius: 21px;
+  background-color: rgb(239, 243, 244);
+  margin-top: 6px;
+  margin-bottom: 12px;
+  /* 세로, 가운데, 가로 위치 간격 조정 */
+  display: flex;
+  align-items: center;
+}
+
+/*
+    부모 search 내 svg, input 태그가 그대로 받아 스타일 적용
+*/
+.search svg {
+  margin-left: 20px;
+  fill: rgb(83, 100, 113);
+}
+
+.search input {
+  outline: none;
+  background-color: inherit;
+  border: none;
+  padding: 12px;
+  margin-left: 5px;
+  font-size: 15px;
+  color: black;
+}
+
+.followRecommend {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgb(247, 249, 249);
+  border-radius: 16px;
+  margin: 12px 0;
+  padding: 12px 16px;
+}
+.followRecommend h3 {
+  padding-bottom: 12px;
+}
