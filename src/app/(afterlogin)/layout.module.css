@@ -23,7 +23,7 @@
 
 .leftSectionFixed {
   /* 말 그대로 고정 스타일 할당이다.*/
-  background-color: orange;
+  background-color: gray;
   position: fixed;
   /* 
   width를 100%로 하게 되면 잘 안될 가능성이 있다.
@@ -32,7 +32,6 @@
   leftSection이 부모이기에 275px를 그대로 가져온다.
   */
   width: inherit;
-
   height: 100dvh;
   display: flex;
   flex-direction: column;

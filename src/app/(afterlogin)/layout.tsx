@@ -3,6 +3,8 @@ import style from '@/app/(afterlogin)/layout.module.css';
 import ybchaLogo from '../../../public/ybchaLogo.png';
 import Link from 'next/link';
 import Image from 'next/image';
+import NavMenu from '@/app/(afterlogin)/_component/NavMenu';
+import LogoutButton from '@/app/(afterlogin)/_component/LogoutButton';
 type Props = {
   children: ReactNode;
 };
@@ -19,6 +21,20 @@ export default function AfterLoginLayout({ children }: Props) {
                 <Image src={ybchaLogo} alt="ybcha.com로고" width={40} height={40} />
               </div>
             </Link>
+            <nav>
+              <ul>
+                <NavMenu />
+              </ul>
+              <Link href="/compose/tweet" className={style.postButton}>
+                게시하기
+              </Link>
+            </nav>
+            {/* 
+              로그아웃 버튼을 가장 밑으로 보내기 위해서는 가장 쉬운 방법으로 flex를 column으로 지정해준다.
+              부모를 display: flex, flex-direction: column;
+              자식을 flex: 1로 지정
+            */}
+            <LogoutButton />
           </div>
         </section>
       </header>
