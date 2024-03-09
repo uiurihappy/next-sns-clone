@@ -5,11 +5,11 @@
   display: flex;
   margin: 12px 0;
   cursor: pointer;
-  border: none;
   align-items: center;
   background-color: #fff;
   text-align: left;
   border-radius: 33px;
+  border-color: black;
   color: black;
 }
 .logOutButton:hover {
