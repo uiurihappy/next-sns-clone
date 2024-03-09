@@ -5,6 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavMenu from '@/app/(afterlogin)/_component/NavMenu';
 import LogoutButton from '@/app/(afterlogin)/_component/LogoutButton';
+
+import TrendSection from '@/app/(afterlogin)/_component/TrendSection';
+import FollowRecommendSection from '@/app/(afterlogin)/_component/FollowRecommendSection';
+
 type Props = {
   children: ReactNode;
 };
@@ -52,6 +56,8 @@ export default function AfterLoginLayout({ children }: Props) {
               </svg>
               <input type="search" />
             </form>
+            <TrendSection />
+            <FollowRecommendSection />
           </section>
         </div>
       </div>
