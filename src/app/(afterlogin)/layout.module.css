@@ -23,7 +23,6 @@
 
 .leftSectionFixed {
   /* 말 그대로 고정 스타일 할당이다.*/
-  background-color: gray;
   position: fixed;
   /* 
   width를 100%로 하게 되면 잘 안될 가능성이 있다.
@@ -91,7 +90,6 @@
 }
 
 .rightSectionInner {
-  background-color: aqua;
   height: 100%;
   width: 990px;
   display: flex;
@@ -100,14 +98,12 @@
 }
 
 .main {
-  background-color: white;
   color: black;
   width: 600px;
   height: 200dvh;
 }
 
 .rightSection {
-  background-color: blue;
   width: 350px;
   height: 100%;
 }
