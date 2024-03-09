@@ -10,6 +10,7 @@
   background-color: #fff;
   text-align: left;
   border-radius: 33px;
+  color: black;
 }
 .logOutButton:hover {
   background-color: rgba(15, 20, 25, 0.1);
