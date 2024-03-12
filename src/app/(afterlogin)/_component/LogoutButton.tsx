@@ -7,7 +7,7 @@ export default function LogoutButton() {
     // 임시로 내 정보 있는것처럼
     id: 'ybcha',
     nickname: '차윤범',
-    image: '/logout-svgrepo-com.svg',
+    image: '/ybchaLogo.png',
   };
 
   const onLogout = () => {};
