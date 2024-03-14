@@ -1,6 +1,7 @@
 'use client';
 import style from './post.module.css';
 import cx from 'classnames';
+// npm 라이브러리는 npmtrends.com 에서 확인이 가능하다.
 
 export default function ActionButtons() {
   const commented = true;
@@ -13,6 +14,8 @@ export default function ActionButtons() {
 
   return (
     <div className={style.actionButtons}>
+      {/* classnames 하나의 div가 클래스를 여러 개 가질 수도 있지만, 조건부로 가질 수 있다. */}
+      {/* [style.commented]: commented, dynamic property */}
       <div className={cx(style.commentButton, { [style.commented]: commented })}>
         <button onClick={onClickComment}>
           <svg width={24} viewBox="0 0 24 24" aria-hidden="true">
