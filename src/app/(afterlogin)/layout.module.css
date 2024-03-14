@@ -80,6 +80,14 @@
 .postButton:hover {
   background-color: rgb(26, 140, 216);
 }
+.postButton span {
+  display: none;
+}
+.postButton svg {
+  display: inline-block;
+  fill: white;
+  width: 24px;
+}
 
 .rightSectionWrapper {
   display: flex;
