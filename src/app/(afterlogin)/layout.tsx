@@ -8,6 +8,7 @@ import LogoutButton from '@/app/(afterlogin)/_component/LogoutButton';
 
 import TrendSection from '@/app/(afterlogin)/_component/TrendSection';
 import FollowRecommendSection from '@/app/(afterlogin)/_component/FollowRecommendSection';
+import RightSearchZone from '@/app/(afterlogin)/_component/RightSearchZone';
 
 type Props = {
   children: ReactNode;
@@ -57,8 +58,11 @@ export default function AfterLoginLayout({ children, modal }: Props) {
           <main className={style.main}>{children}</main>
           {/* main과 rightSection에 대한 간격이 존재*/}
           <section className={style.rightSection}>
+            <RightSearchZone />
+            {/* 검색 창 */}
+            {/* 이거 하나때문에 layout 컴포넌트를 use client로 바꿀 순 없다. 그래서 컴포넌트 일부를 클라이언트 컴포넌트로 분리하기로 한다.
             <div style={{ marginBottom: 60, width: 'inherit' }}>
-              {/* 검색 창 */}
+              
               <form className={style.search}>
                 <svg width={20} viewBox="0 0 24 24" aria-hidden="true">
                   <g>
@@ -68,6 +72,7 @@ export default function AfterLoginLayout({ children, modal }: Props) {
                 <input type="search" />
               </form>
             </div>
+            */}
             <TrendSection />
             {/* <FollowRecommendSection /> */}
             <div className={style.followRecommend}>
