@@ -1,3 +1,27 @@
+import BackButton from '@/app/(afterlogin)/_component/BackButton';
+import style from './singlePost.module.css';
+import Post from '@/app/(afterlogin)/_component/Post';
+import CommentForm from './_component/CommentForm';
+
 export default function SinglePost() {
-  return <main>게시글 상세</main>;
+  return (
+    <div className={style.main}>
+      <div className={style.header}>
+        <BackButton />
+        <h3 className={style.headerTitle}>게시하기</h3>
+      </div>
+      <Post />
+      <CommentForm />
+      <div>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </div>
+    </div>
+  );
 }

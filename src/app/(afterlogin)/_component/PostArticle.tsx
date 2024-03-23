@@ -26,6 +26,7 @@ export default function PostArticle({ children, post }: Props) {
   };
 
   return (
+    // onClickCapture: 이벤트를 캡처할 수 있다.
     <article onClickCapture={onClick} className={style.post}>
       {children}
     </article>
