@@ -2,10 +2,13 @@
 import style from './post.module.css';
 import cx from 'classnames';
 // npm 라이브러리는 npmtrends.com 에서 확인이 가능하다.
+type Props = {
+  white?: Boolean;
+};
 
-export default function ActionButtons() {
-  const commented = true;
-  const reposted = true;
+export default function ActionButtons({ white }: Props) {
+  const commented = false;
+  const reposted = false;
   const liked = false;
 
   const onClickComment = () => {};
@@ -16,7 +19,7 @@ export default function ActionButtons() {
     <div className={style.actionButtons}>
       {/* classnames 하나의 div가 클래스를 여러 개 가질 수도 있지만, 조건부로 가질 수 있다. */}
       {/* [style.commented]: commented, dynamic property */}
-      <div className={cx(style.commentButton, { [style.commented]: commented })}>
+      <div className={cx(style.commentButton, { [style.commented]: commented }, white && style.white)}>
         <button onClick={onClickComment}>
           <svg width={24} viewBox="0 0 24 24" aria-hidden="true">
             <g>
@@ -26,7 +29,7 @@ export default function ActionButtons() {
         </button>
         <div className={style.count}>{1 || ''}</div>
       </div>
-      <div className={cx(style.repostButton, reposted && style.reposted)}>
+      <div className={cx(style.repostButton, reposted && style.reposted, white && style.white)}>
         <button onClick={onClickRepost}>
           <svg width={24} viewBox="0 0 24 24" aria-hidden="true">
             <g>
@@ -36,7 +39,7 @@ export default function ActionButtons() {
         </button>
         <div className={style.count}>{1 || ''}</div>
       </div>
-      <div className={cx([style.heartButton, liked && style.liked])}>
+      <div className={cx([style.heartButton, liked && style.liked, white && style.white])}>
         <button onClick={onClickHeart}>
           <svg width={24} viewBox="0 0 24 24" aria-hidden="true">
             <g>

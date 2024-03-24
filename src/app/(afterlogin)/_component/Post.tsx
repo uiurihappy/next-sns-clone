@@ -5,25 +5,36 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/ko';
 import ActionButtons from '@/app/(afterlogin)/_component/ActionButtons';
 import PostArticle from '@/app/(afterlogin)/_component/PostArticle';
-
+import { faker } from '@faker-js/faker';
 dayjs.locale('ko');
 
 // 상대 시간으로 fromNow와 같은 함수를 사용할 수 있다.
 dayjs.extend(relativeTime);
 
-export default function Post() {
+type Props = {
+  noImage?: Boolean;
+};
+
+export default function Post({ noImage }: Props) {
   // 서버에서 받아올 데이터
   const target = {
     postId: 1,
     User: {
-      id: 'elonmusk',
-      nickname: 'Elon Musk',
+      id: 'ybcha',
+      nickname: 'Charlie',
       image: '/yRsRRjGO.jpg',
     },
     content: '클론코딩 라이브로 하니 너무 힘들어요 ㅠㅠ',
     createdAt: dayjs().format('YYYY-MM-DD HH:mm:ss'),
-    Images: [],
+    Images: [] as any[],
   };
+
+  if (Math.random() > 0.5 && !noImage) {
+    target.Images.push({
+      imageId: 1,
+      link: faker.image.urlLoremFlickr(),
+    });
+  }
 
   return (
     // 시맨틱 태그
@@ -46,8 +57,17 @@ export default function Post() {
             <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
           </div>
           <div>{target.content}</div>
-          <div className={style.postImageSection}></div>
-          {/* 이미지 추가 영역 */}
+          <div className={style.postImageSection}>
+            {/* 별도 컴포넌트로 분리 예정  */}
+            {target.Images && target.Images.length > 0 && (
+              <Link
+                href={`/${target.User.id}/status/${target.postId}/photo/${target.Images[0].imageId}`}
+                className={style.postImageSection}
+              >
+                <img src={target.Images[0]?.link} alt="" />
+              </Link>
+            )}
+          </div>
           <ActionButtons />
         </div>
       </div>
