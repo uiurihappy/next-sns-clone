@@ -6,6 +6,7 @@ import 'dayjs/locale/ko';
 import ActionButtons from '@/app/(afterlogin)/_component/ActionButtons';
 import PostArticle from '@/app/(afterlogin)/_component/PostArticle';
 import { faker } from '@faker-js/faker';
+import PostImages from './PostImages';
 dayjs.locale('ko');
 
 // 상대 시간으로 fromNow와 같은 함수를 사용할 수 있다.
@@ -30,10 +31,13 @@ export default function Post({ noImage }: Props) {
   };
 
   if (Math.random() > 0.5 && !noImage) {
-    target.Images.push({
-      imageId: 1,
-      link: faker.image.urlLoremFlickr(),
-    });
+    const numImages = Math.floor(Math.random() * 4) + 1; // 1부터 4까지의 무작위 정수
+    for (let i = 0; i < numImages; i++) {
+      target.Images.push({
+        imageId: i + 1,
+        link: faker.image.urlLoremFlickr(),
+      });
+    }
   }
 
   return (
@@ -57,16 +61,8 @@ export default function Post({ noImage }: Props) {
             <span className={style.postDate}>{dayjs(target.createdAt).fromNow(true)}</span>
           </div>
           <div>{target.content}</div>
-          <div className={style.postImageSection}>
-            {/* 별도 컴포넌트로 분리 예정  */}
-            {target.Images && target.Images.length > 0 && (
-              <Link
-                href={`/${target.User.id}/status/${target.postId}/photo/${target.Images[0].imageId}`}
-                className={style.postImageSection}
-              >
-                <img src={target.Images[0]?.link} alt="" />
-              </Link>
-            )}
+          <div>
+            <PostImages post={target} />
           </div>
           <ActionButtons />
         </div>

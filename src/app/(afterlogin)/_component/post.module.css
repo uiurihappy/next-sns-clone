@@ -88,10 +88,91 @@
   flex-direction: row;
 }
 
-.postImageSection img {
+.postImageSection {
+  display: inline-block;
   margin-top: 12px;
   width: 100%;
   border-radius: 16px;
+}
+.postImageSection.oneImage {
+  max-height: 510px;
+  background-repeat: no-repeat;
+}
+.postImageSection img {
+  border-radius: 16px;
+  max-height: 510px;
+  width: 100%;
+}
+
+/* 이미지 2개 */
+.postImageSection.twoImage {
+  height: 272px;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+.postImageSection.twoImage a {
+  flex: 1;
+}
+.postImageSection.twoImage a:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.postImageSection.twoImage a:last-child {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+/* 이미지 3개 */
+.postImageSection.threeImage {
+  height: 272px;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+.postImageSection.threeImage > a,
+.postImageSection.threeImage > div {
+  flex: 1;
+}
+.postImageSection.threeImage > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.postImageSection.threeImage > div > a {
+  flex: 1;
+}
+.postImageSection.threeImage > a:first-child {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+.postImageSection.threeImage > div > a:first-child {
+  border-top-right-radius: 16px;
+}
+.postImageSection.threeImage > div > a:last-child {
+  border-bottom-right-radius: 16px;
+}
+
+/* 이미지 4개 */
+.postImageSection.fourImage {
+  height: 272px;
+  display: grid;
+  /* 2 * 2 일때 가로 div를 사용해도 되지만, grid를 사용하는 게 더 나아보임 */
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.postImageSection.fourImage > a:nth-child(1) {
+  border-top-left-radius: 16px;
+}
+.postImageSection.fourImage > a:nth-child(2) {
+  border-top-right-radius: 16px;
+}
+.postImageSection.fourImage > a:nth-child(3) {
+  border-bottom-left-radius: 16px;
+}
+.postImageSection.fourImage > a:nth-child(4) {
+  border-bottom-right-radius: 16px;
 }
 
 .actionButtons {
@@ -144,7 +225,6 @@
   background-color: rgba(29, 155, 240, 0.1);
 }
 
-/* svg, count white 합성 */
 .commentButton.white svg,
 .commentButton.white .count {
   fill: white;
@@ -160,7 +240,6 @@
   fill: white;
   color: white;
 }
-
 .commentButton.commented svg,
 .commentButton:hover svg {
   fill: rgb(29, 155, 240);
