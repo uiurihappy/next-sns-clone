@@ -45,6 +45,7 @@
   padding-bottom: 24px;
 }
 .content {
+  /* height는 무조건 고정인데 line-height를 통해 한 줄당 px을 조절할 수 있다.*/
   line-height: 20px;
   padding: 12px 16px;
   font-size: 15px;
@@ -52,6 +53,7 @@
 .myMessage {
   display: flex;
   flex-direction: column;
+  /* 오른쪽 정렬 */
   align-items: flex-end;
 }
 .myMessage .content {
@@ -64,6 +66,7 @@
 .yourMessage {
   display: flex;
   flex-direction: column;
+  /* 왼쪽 정렬 */
   align-items: flex-start;
 }
 .yourMessage .content {
